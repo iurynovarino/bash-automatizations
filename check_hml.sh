@@ -6,7 +6,7 @@ urls=("https://www.youtube.com"
 "https://www.google.com"
 "https://github.com/"
 "https://x.com/"
-"https://azure.microsoft.com/" )
+"https://azure.microsoft.com/en-us/" )
 
 # Function to check the URL
 check_url() {
