@@ -21,11 +21,19 @@ check_url() {
 # Função para enviar mensagem pelo WhatsApp usando Twilio
 send_whatsapp_message() {
     local message=$1
-    curl -X POST "https://api.twilio.com/2010-04-01/Accounts/<ACCOUNT_SID>/Messages.json" \
+
+    # Check for required environment variables
+    if [ -z "$TWILIO_ACCOUNT_SID" ] || [ -z "$TWILIO_AUTH_TOKEN" ] || [ -z "$TWILIO_FROM_NUMBER" ] || [ -z "$TWILIO_TO_NUMBER" ]; then
+        echo "Error: Twilio environment variables are not set."
+        echo "Please set TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_NUMBER, and TWILIO_TO_NUMBER."
+        return 1
+    fi
+
+    curl -s -X POST "https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json" \
     --data-urlencode "Body=$message" \
-    --data-urlencode "From=whatsapp:+14155238886" \
-    --data-urlencode "To=whatsapp:+<SEU_NUMERO_VERIFICADO>" \
-    -u sga038c0ec47fc5f54a0196eabd70f0c59:<AUTH_TOKEN>
+    --data-urlencode "From=${TWILIO_FROM_NUMBER}" \
+    --data-urlencode "To=${TWILIO_TO_NUMBER}" \
+    -u "${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}"
 }
 
 # Loop através das URLs e verificar cada uma

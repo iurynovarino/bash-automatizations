@@ -1,5 +1,5 @@
-#This is a simple way to check if a list of URLs are up and running.
 #!/bin/bash
+# This is a simple way to check if a list of URLs are up and running.
 
 # URL list to check
 urls=("https://www.youtube.com"
