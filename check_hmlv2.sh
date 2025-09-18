@@ -3,9 +3,9 @@
 # Lista de URLs para verificar
 urls=("https://www.youtube.com"
 "https://www.google.com"
-"https://www.github.com"
-"https://www.stackoverflow.com"
-"https://www.reddit.com")
+"https://github.com/"
+"https://x.com/"
+"https://azure.microsoft.com/" )
 
 # Função para verificar a URL
 check_url() {

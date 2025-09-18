@@ -4,9 +4,9 @@
 # URL list to check
 urls=("https://www.youtube.com"
 "https://www.google.com"
-"https://www.github.com"
-"https://www.stackoverflow.com"
-"https://www.reddit.com" )
+"https://github.com/"
+"https://x.com/"
+"https://azure.microsoft.com/" )
 
 # Function to check the URL
 check_url() {
